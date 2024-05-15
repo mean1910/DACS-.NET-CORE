@@ -25,7 +25,7 @@ public partial class Customer
 
     public DateTime? DateCreate { get; set; }
 
-    public bool? Active { get; set; }
+    public bool Active { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

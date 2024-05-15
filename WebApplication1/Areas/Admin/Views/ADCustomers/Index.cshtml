@@ -1,0 +1,88 @@
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<WebApplication1.Models.Customer>
+@{
+    ViewData["Title"] = "Danh sách khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row mb-3">
+        <div class="col-auto">
+            <a asp-action="Create" class="btn btn-primary">Tạo mới</a>
+        </div>
+        <div class="col-auto">
+            <form asp-controller="Account" asp-action="Index" method="get">
+                <div class="input-group">
+                    <select class="form-control" asp-items="@ViewBag.RoleId" id="roleId" name="roleId">
+                        <option value="" selected disabled>Lọc theo quyền truy cập</option>
+                    </select>
+                    <select class="form-control" asp-items="@ViewBag.Status" id="statusId" name="statusId">
+                        <option value="" selected disabled>Lọc theo trạng thái</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Lọc</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Địa chỉ</th>
+                    <th>Lần đăng nhập cuối</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CustomerId</td>
+                        <td>@item.FullName</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Email</td>
+                        <td>@item.Address</td>
+                        <td>@item.LastLogin</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CustomerId" class="btn btn-sm btn-primary">Sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.CustomerId" class="btn btn-sm btn-info">Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.CustomerId" class="btn btn-sm btn-danger">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(1)">First</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(@i)">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(@Model.PageCount)">Last</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    function changePage(pageNumber) {
+        window.location.href = '?page=' + pageNumber;
+    }
+</script>
+
+</div>

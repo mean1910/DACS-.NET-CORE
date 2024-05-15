@@ -16,7 +16,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Role Name</th>
+                        <th>ID</th>
+                        <th>Tên quyền truy cập</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -24,11 +25,12 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@Html.DisplayFor(modelItem => item.RoleId)</td>
                             <td>@Html.DisplayFor(modelItem => item.RoleName)</td>
                             <td>
-                                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.RoleId"><i class="fas fa-edit"></i> Edit</a>
-                                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.RoleId"><i class="fas fa-info-circle"></i> Details</a>
-                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RoleId"><i class="fas fa-trash"></i> Delete</a>
+                                <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.RoleId"><i class="fas fa-edit"></i> Chỉnh sửa</a>
+                                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.RoleId"><i class="fas fa-info-circle"></i> Thông tin</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.RoleId"><i class="fas fa-trash"></i> Xóa</a>
                             </td>
                         </tr>
                     }

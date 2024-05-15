@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApplication1.Models.Account>
+
+@{
+    ViewData["Title"] = "Danh sách tài khoản quản trị";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row mb-3">
+        <div class="col-auto">
+            <a asp-action="Create" class="btn btn-primary">Tạo mới</a>
+        </div>
+        <div class="col-auto">
+            <form asp-controller="Account" asp-action="Index" method="get">
+                <div class="input-group">
+                    <select class="form-control" asp-items="@ViewBag.RoleId" id="roleId" name="roleId">
+                        <option value="" selected disabled>Lọc theo quyền truy cập</option>
+                    </select>
+                    <select class="form-control" asp-items="@ViewBag.Status" id="statusId" name="statusId">
+                        <option value="" selected disabled>Lọc theo trạng thái</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">Lọc</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Họ và tên</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
+                    <th>Quyền truy cập</th>
+                    <th>Lần đăng nhập cuối</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.AccountId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Active)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Role.RoleName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastLogin)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.AccountId" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.AccountId" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.AccountId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

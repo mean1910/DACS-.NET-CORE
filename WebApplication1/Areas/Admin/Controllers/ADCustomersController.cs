@@ -6,26 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
-
+using X.PagedList;
 namespace WebApplication1.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class RolesController : Controller
+    public class ADCustomersController : Controller
     {
         private readonly ThaoDuocMarketContext _context;
 
-        public RolesController(ThaoDuocMarketContext context)
+        public ADCustomersController(ThaoDuocMarketContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/Roles
-        public async Task<IActionResult> Index()
+        // GET: Admin/ADCustomers
+
+
+        public ActionResult Index(int? page)
         {
-            return View(await _context.Roles.ToListAsync());
+            var pageNumber = page == null || page <= 0 ? 1: page.Value ;
+            var pageSize = 20;
+            var customers = _context.Customers.AsNoTracking().OrderByDescending(x => x.CustomerId);
+
+            PagedList<Customer> models = new PagedList<Customer>(customers, pageNumber, pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            return View(models);
         }
 
-        // GET: Admin/Roles/Details/5
+
+        // GET: Admin/ADCustomers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +43,39 @@ namespace WebApplication1.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var role = await _context.Roles
-                .FirstOrDefaultAsync(m => m.RoleId == id);
-            if (role == null)
+            var customer = await _context.Customers
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            return View(role);
+            return View(customer);
         }
 
-        // GET: Admin/Roles/Create
+        // GET: Admin/ADCustomers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Roles/Create
+        // POST: Admin/ADCustomers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoleId,RoleName")] Role role)
+        public async Task<IActionResult> Create([Bind("CustomerId,FullName,BirthDay,Avatar,Address,Email,Phone,Password,LastLogin,DateCreate,Active")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(role);
+                _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(role);
+            return View(customer);
         }
 
-        // GET: Admin/Roles/Edit/5
+        // GET: Admin/ADCustomers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +83,22 @@ namespace WebApplication1.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var role = await _context.Roles.FindAsync(id);
-            if (role == null)
+            var customer = await _context.Customers.FindAsync(id);
+            if (customer == null)
             {
                 return NotFound();
             }
-            return View(role);
+            return View(customer);
         }
 
-        // POST: Admin/Roles/Edit/5
+        // POST: Admin/ADCustomers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RoleId,RoleName")] Role role)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FullName,BirthDay,Avatar,Address,Email,Phone,Password,LastLogin,DateCreate,Active")] Customer customer)
         {
-            if (id != role.RoleId)
+            if (id != customer.CustomerId)
             {
                 return NotFound();
             }
@@ -97,12 +107,12 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(role);
+                    _context.Update(customer);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoleExists(role.RoleId))
+                    if (!CustomerExists(customer.CustomerId))
                     {
                         return NotFound();
                     }
@@ -113,10 +123,10 @@ namespace WebApplication1.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(role);
+            return View(customer);
         }
 
-        // GET: Admin/Roles/Delete/5
+        // GET: Admin/ADCustomers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +134,34 @@ namespace WebApplication1.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var role = await _context.Roles
-                .FirstOrDefaultAsync(m => m.RoleId == id);
-            if (role == null)
+            var customer = await _context.Customers
+                .FirstOrDefaultAsync(m => m.CustomerId == id);
+            if (customer == null)
             {
                 return NotFound();
             }
 
-            return View(role);
+            return View(customer);
         }
 
-        // POST: Admin/Roles/Delete/5
+        // POST: Admin/ADCustomers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var role = await _context.Roles.FindAsync(id);
-            if (role != null)
+            var customer = await _context.Customers.FindAsync(id);
+            if (customer != null)
             {
-                _context.Roles.Remove(role);
+                _context.Customers.Remove(customer);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoleExists(int id)
+        private bool CustomerExists(int id)
         {
-            return _context.Roles.Any(e => e.RoleId == id);
+            return _context.Customers.Any(e => e.CustomerId == id);
         }
     }
 }

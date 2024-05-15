@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "u+QWrZYmzJ3OTfp8mEmsMuTDmv69TxaW+7ZwQ3NLFpS6yJ4/jeYyX4IVNIPBF6xD2w6Ut2ib1urkXj70ZScziw==",
+  "dgSpecHash": "K4onRQQ13fzPcM1qwx4AtgUmgIimRKU3jer+I9X/F1E4Qiqz1WFt3LGC1FB3NTeNSw46MKuH9VfYcXIi79pC/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -162,7 +162,9 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\x.pagedlist\\9.1.2\\x.pagedlist.9.1.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\x.pagedlist.mvc.core\\9.1.2\\x.pagedlist.mvc.core.9.1.2.nupkg.sha512"
   ],
   "logs": []
 }
