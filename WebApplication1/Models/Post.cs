@@ -15,7 +15,7 @@ public partial class Post
 
     public string? Thumb { get; set; }
 
-    public bool? Published { get; set; }
+    public bool Published { get; set; }
 
     public DateTime? CreateDate { get; set; }
 
@@ -24,4 +24,6 @@ public partial class Post
     public int? AccountId { get; set; }
 
     public string? Tags { get; set; }
+
+    public virtual ICollection<PostImage> PostImages { get; set; } = new List<PostImage>();
 }

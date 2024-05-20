@@ -1,103 +1,48 @@
 ﻿@model WebApplication1.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi Tiết Sản Phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Thumb)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thumb)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateCreate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateCreate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateModified)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateModified)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BestSeller)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BestSeller)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HomeFlag)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HomeFlag)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Active)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UnitsInStock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UnitsInStock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cat.CatId)
-        </dd>
-    </dl>
+<h4 class="text-center mt-4">Chi Tiết Sản Phẩm</h4>
+<hr />
+<div class="container">
+    <div class="row">
+        <!-- Product Image and Basic Info -->
+        <div class="col-md-5">
+            <img src="@Model.Thumb" alt="Product Image" class="img-fluid rounded mb-3" />
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Thông Tin Cơ Bản</h5>
+                    <p class="card-text"><b>Tên sản phẩm:</b> @Html.DisplayFor(model => model.ProductName)</p>
+                    <p class="card-text"><b>Mô tả ngắn:</b> @Html.DisplayFor(model => model.ShortDesc)</p>
+                </div>
+            </div>
+        </div><!-- / column -->
+        <!-- Detailed Info -->
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Thông Tin Chi Tiết</h5>
+                    <p class="card-text"><b>Giá:</b> @Html.DisplayFor(model => model.Price)</p>
+                    <p class="card-text"><b>Giảm giá:</b> @Html.DisplayFor(model => model.Discount)</p>
+                    <p class="card-text"><b>Ngày tạo:</b> @Html.DisplayFor(model => model.DateCreate)</p>
+                    <p class="card-text"><b>Ngày cập nhật:</b> @Html.DisplayFor(model => model.DateModified)</p>
+                    <p class="card-text"><b>Sản phẩm bán chạy:</b> @Html.DisplayFor(model => model.BestSeller)</p>
+                    <p class="card-text"><b>Hiển thị trên trang chủ:</b> @Html.DisplayFor(model => model.HomeFlag)</p>
+                    <p class="card-text"><b>Trạng thái:</b> @Html.DisplayFor(model => model.Active)</p>
+                    <p class="card-text"><b>Tags:</b> @Html.DisplayFor(model => model.Tags)</p>
+                    <p class="card-text"><b>Số lượng trong kho:</b> @Html.DisplayFor(model => model.UnitsInStock)</p>
+                    <p class="card-text"><b>Loại sản phẩm:</b> @ViewData["CategoryName"]</p>
+                    <h5 class="card-title mt-3">Mô Tả Chi Tiết</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+                </div>
+            </div>
+        </div><!-- / column -->
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ProductId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="text-center mt-4">
+    <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary">Chỉnh Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại Danh Sách</a>
 </div>

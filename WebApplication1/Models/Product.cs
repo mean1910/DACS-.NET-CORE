@@ -11,7 +11,7 @@ public partial class Product
 
     public string? ShortDesc { get; set; }
 
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
     public int? CatId { get; set; }
 
@@ -25,15 +25,17 @@ public partial class Product
 
     public DateTime? DateModified { get; set; }
 
-    public bool? BestSeller { get; set; }
+    public bool BestSeller { get; set; }
 
-    public bool? HomeFlag { get; set; }
+    public bool HomeFlag { get; set; }
 
-    public bool? Active { get; set; }
+    public bool Active { get; set; }
 
     public string? Tags { get; set; }
 
     public int? UnitsInStock { get; set; }
 
     public virtual Category? Cat { get; set; }
+
+    public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
 }

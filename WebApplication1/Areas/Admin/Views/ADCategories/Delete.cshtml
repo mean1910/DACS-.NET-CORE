@@ -1,0 +1,41 @@
+﻿@model WebApplication1.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa Danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">Xóa Danh mục</h1>
+
+    <h3 class="text-center text-danger">Bạn có chắc chắn muốn xóa danh mục này không?</h3>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">
+                    Mã danh mục
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CatId)
+                </dd>
+                <dt class="col-sm-4">
+                    Tên danh mục
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CatName)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete" class="text-center">
+                <input type="hidden" asp-for="CatId" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Xóa
+                </button>
+                <a class="btn btn-secondary" asp-action="Index">
+                    <i class="fas fa-arrow-left"></i> Quay lại danh sách
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

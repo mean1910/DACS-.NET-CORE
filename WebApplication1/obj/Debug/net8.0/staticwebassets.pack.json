@@ -7665,6 +7665,34 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\post\\Avatar-hai-doc.jpg",
+      "PackagePath": "staticwebassets\\thumb\\post\\Avatar-hai-doc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\post\\tải xuống.webp",
+      "PackagePath": "staticwebassets\\thumb\\post\\tải xuống.webp"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\product\\13146c54-40a9-4894-99e8-2c01b3362dd4.jpg",
+      "PackagePath": "staticwebassets\\thumb\\product\\13146c54-40a9-4894-99e8-2c01b3362dd4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\product\\8ba9b835873b63ca48e6c9518671d771.jpg",
+      "PackagePath": "staticwebassets\\thumb\\product\\8ba9b835873b63ca48e6c9518671d771.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\product\\Avatar-hai-doc.jpg",
+      "PackagePath": "staticwebassets\\thumb\\product\\Avatar-hai-doc.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\product\\Capybara Mouse Pad Cute Capibara Computer Mousepad 12.jpg",
+      "PackagePath": "staticwebassets\\thumb\\product\\Capybara Mouse Pad Cute Capibara Computer Mousepad 12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\wwwroot\\thumb\\product\\Capybara Mouse Pad Cute Capibara Computer Mousepad 7.jpg",
+      "PackagePath": "staticwebassets\\thumb\\product\\Capybara Mouse Pad Cute Capibara Computer Mousepad 7.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

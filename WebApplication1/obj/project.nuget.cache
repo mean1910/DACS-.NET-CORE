@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "K4onRQQ13fzPcM1qwx4AtgUmgIimRKU3jer+I9X/F1E4Qiqz1WFt3LGC1FB3NTeNSw46MKuH9VfYcXIi79pC/A==",
+  "dgSpecHash": "HxZgTEz3c5H670fMM8Ro9JEF1nEt86QvSundUfZfO8bMrAVd/NUgVGsEyMji1uHrySpqse57ToqkawjwZAGw2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\OneDrive\\Máy tính\\DACS\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\ckeditor\\3.6.4\\ckeditor.3.6.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

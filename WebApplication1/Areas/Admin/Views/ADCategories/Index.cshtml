@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.Category>
+
+@{
+    ViewData["Title"] = "Danh sách Danh mục";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">Danh sách Danh mục</h1>
+
+    <div class="text-right mb-3">
+        <a class="btn btn-primary" asp-action="Create"><i class="fas fa-plus"></i> Tạo mới</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Mã danh mục
+                    </th>
+                    <th>
+                        Tên danh mục
+                    </th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CatName)
+                        </td>
+                        <td>
+                            <a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.CatId">
+                                <i class="fas fa-edit"></i> Sửa
+                            </a>
+                            <a class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@item.CatId">
+                                <i class="fas fa-info-circle"></i> Chi tiết
+                            </a>
+                            <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.CatId">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

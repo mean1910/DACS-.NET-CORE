@@ -10,9 +10,6 @@
 
     <div class="row mb-3">
         <div class="col-auto">
-            <a asp-action="Create" class="btn btn-primary">Tạo mới</a>
-        </div>
-        <div class="col-auto">
             <form asp-controller="Account" asp-action="Index" method="get">
                 <div class="input-group">
                     <select class="form-control" asp-items="@ViewBag.RoleId" id="roleId" name="roleId">

@@ -27,7 +27,11 @@ public partial class ThaoDuocMarketContext : DbContext
 
     public virtual DbSet<Post> Posts { get; set; }
 
+    public virtual DbSet<PostImage> PostImages { get; set; }
+
     public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<ProductImage> ProductImages { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
 
@@ -120,6 +124,17 @@ public partial class ThaoDuocMarketContext : DbContext
             entity.Property(e => e.CreateDate).HasColumnType("datetime");
         });
 
+        modelBuilder.Entity<PostImage>(entity =>
+        {
+            entity.HasKey(e => e.ImageId);
+
+            entity.ToTable("PostImage");
+
+            entity.HasOne(d => d.Post).WithMany(p => p.PostImages)
+                .HasForeignKey(d => d.PostId)
+                .HasConstraintName("FK_PostImage_Posts");
+        });
+
         modelBuilder.Entity<Product>(entity =>
         {
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -132,6 +147,20 @@ public partial class ThaoDuocMarketContext : DbContext
             entity.HasOne(d => d.Cat).WithMany(p => p.Products)
                 .HasForeignKey(d => d.CatId)
                 .HasConstraintName("FK_Products_Categories");
+        });
+
+        modelBuilder.Entity<ProductImage>(entity =>
+        {
+            entity.HasKey(e => e.ImageId);
+
+            entity.ToTable("ProductImage");
+
+            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductImages)
+                .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ProductImage_Products");
         });
 
         modelBuilder.Entity<Role>(entity =>
