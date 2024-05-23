@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
-
+using X.PagedList;
 namespace WebApplication1.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -20,9 +20,12 @@ namespace WebApplication1.Areas.Admin.Controllers
         }
 
         // GET: Admin/ADPosts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            return View(await _context.Posts.ToListAsync());
+            int pageNumber = page ?? 1; // Nếu không có trang nào được chỉ định, mặc định là trang 1
+            int pageSize = 5; // Số lượng item mỗi trang
+            var posts = _context.Posts.OrderBy(p => p.CreateDate).ToPagedList(pageNumber, pageSize);
+            return View(posts);
         }
 
         // GET: Admin/ADPosts/Details/5
@@ -86,7 +89,7 @@ namespace WebApplication1.Areas.Admin.Controllers
                     // Lưu đường dẫn vào thuộc tính Thumb của bài viết
                     post.Thumb = thumbPath;
                 }
-
+                post.CreateDate = DateTime.Now;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

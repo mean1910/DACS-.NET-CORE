@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:views\\posts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\areas\\admin\\views\\adposts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:areas\\admin\\views\\adposts\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\areas\\admin\\views\\adposts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:areas\\admin\\views\\adposts\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\views\\shared\\_navbarpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:views\\shared\\_navbarpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\areas\\admin\\controllers\\adpostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:areas\\admin\\controllers\\adpostscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|solutionrelative:controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE34132E-72EC-447E-95FA-5687554EABB4}|WebApplication1.csproj|c:\\users\\admin\\onedrive\\m\u00E1y t\u00EDnh\\dacs\\webapplication1\\areas\\admin\\views\\adposts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -33,37 +33,61 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAAGEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-22T09:05:24.756Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Posts\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Posts\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Posts\\Index.cshtml",
+              "RelativeToolTip": "Views\\Posts\\Index.cshtml",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAAB8AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-22T10:35:02.016Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AQIAADEBAAAAAAAAAAAcwDsBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T12:59:16.794Z",
+              "DocumentIndex": 3,
+              "Title": "PostsController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Controllers\\PostsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PostsController.cs",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Controllers\\PostsController.cs",
+              "RelativeToolTip": "Controllers\\PostsController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T10:00:14.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\ADPosts\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ADPosts\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\ADPosts\\Edit.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ADPosts\\Edit.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAcwDkAAAAAAAAA",
+              "Title": "_NavBarPartialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Shared\\_NavBarPartialView.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_NavBarPartialView.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Views\\Shared\\_NavBarPartialView.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_NavBarPartialView.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAABLAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T12:53:20.287Z"
+              "WhenOpened": "2024-05-22T09:15:55.802Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -73,33 +97,10 @@
               "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ADPosts\\Index.cshtml",
               "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\ADPosts\\Index.cshtml",
               "RelativeToolTip": "Areas\\Admin\\Views\\ADPosts\\Index.cshtml",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAADIAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T12:47:16.848Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\ADPosts\\Create.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ADPosts\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Views\\ADPosts\\Create.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\ADPosts\\Create.cshtml",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAcwBoAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T12:43:43.962Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ADPostsController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Controllers\\ADPostsController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ADPostsController.cs",
-              "ToolTip": "C:\\Users\\Admin\\OneDrive\\M\u00E1y t\u00EDnh\\DACS\\WebApplication1\\Areas\\Admin\\Controllers\\ADPostsController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\ADPostsController.cs",
-              "ViewState": "AQIAAJ4AAAAAAAAAAAAiwKIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T12:38:15.313Z"
+              "WhenOpened": "2024-05-19T12:47:16.848Z",
+              "EditorCaption": ""
             }
           ]
         }

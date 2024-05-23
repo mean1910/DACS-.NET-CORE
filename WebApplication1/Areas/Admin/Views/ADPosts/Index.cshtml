@@ -1,50 +1,90 @@
-﻿@model IEnumerable<WebApplication1.Models.Post>
-
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<WebApplication1.Models.Post>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="container mt-4">
+    <h1 class="mb-4">Post List</h1>
 
-<h1>Post List</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-</p>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.ShortContents)</th>
-            <th>Thumbnail</th>
-            <th>@Html.DisplayNameFor(model => model.Published)</th>
-            <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.ShortContents)</td>
-                <td>
-                    @if (!string.IsNullOrEmpty(item.Thumb))
-                    {
-                        <img src="@item.Thumb" alt="Thumbnail" style="width: 100px; height: auto;" />
-                    }
-                    else
-                    {
-                        <span>No Image</span>
-                    }
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.Published)</td>
-                <td>@Html.DisplayFor(modelItem => item.CreateDate)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-sm btn-warning">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.PostId" class="btn btn-sm btn-info">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.PostId" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Title)</th>
+                    <th>Thumbnail</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Published)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().CreateDate)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Thumb))
+                            {
+                                <img src="@item.Thumb" alt="Thumbnail" class="img-thumbnail" style="width: 100px; height: auto;" />
+                            }
+                            else
+                            {
+                                <span>No Image</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Published)
+                            {
+                                <span class="badge badge-success">Published</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-secondary">Unpublished</span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.CreateDate)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.PostId" class="btn btn-sm btn-info">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.PostId" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+  
+    <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(1)">First</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(@i)">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(@Model.PageCount)">Last</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    function changePage(pageNumber) {
+        window.location.href = '?page=' + pageNumber;
+    }
+</script>

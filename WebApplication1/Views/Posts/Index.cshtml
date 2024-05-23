@@ -1,0 +1,55 @@
+﻿@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<WebApplication1.Models.Post>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-4">
+    <h1 class="mb-4">Post List</h1>
+
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                @foreach (var item in Model){
+                <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                    <img class="img-fluid"  src="@item.Thumb" alt="Thumbnail"  style="width: 670px; height: auto;" >
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    
+                        <div class="section-title">
+                            <p class="fs-5 fw-medium fst-italic text-primary">Featured Acticle</p>
+                            <h1 class="display-6">@Html.DisplayFor(modelItem => item.Title)</h1>
+                        </div>
+                        <p class="mb-4">@Html.DisplayFor(modelItem => item.ShortContents)</p>
+                        <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
+                   
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(1)">First</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="javascript:void(0)" onclick="changePage(@i)">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="javascript:void(0)" onclick="changePage(@Model.PageCount)">Last</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    function changePage(pageNumber) {
+        window.location.href = '?page=' + pageNumber;
+    }
+</script>
