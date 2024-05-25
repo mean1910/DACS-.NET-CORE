@@ -21,7 +21,7 @@
                             <h1 class="display-6">@Html.DisplayFor(modelItem => item.Title)</h1>
                         </div>
                         <p class="mb-4">@Html.DisplayFor(modelItem => item.ShortContents)</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" asp-controller="Posts" asp-action="Details" asp-route-id="@item.PostId">Read more</a>
                    
                     </div>
                 }

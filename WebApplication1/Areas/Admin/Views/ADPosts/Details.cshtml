@@ -4,70 +4,84 @@
     ViewData["Title"] = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    .row {
+        margin-bottom: 20px;
+    }
 
-<h1>Details</h1>
+    .form-group {
+        margin-bottom: 10px;
+    }
 
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortContents)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortContents)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contents)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contents)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Thumb)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thumb)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Published)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Published)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AccountId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-    </dl>
+    .right-column {
+        padding-left: 100px; /* Điều chỉnh độ lề trái để thụt sang phải */
+    }
+
+    .btn-group {
+        margin-left: 0px; /* Thụt vào từ bên trái */
+        margin-top: 40px; /* Thụt xuống từ trên */
+    }
+
+        .btn-group a {
+            margin-right: 10px; /* Tăng khoảng cách giữa các nút */
+        }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <img src="@Model.Thumb" alt="Thumbnail" style="width: 600px; height: auto;" />
+            </div>
+            <div class="form-group">
+                <h4>@Html.DisplayFor(model => model.Title)</h4>
+                <p>@Html.DisplayFor(model => model.ShortContents)</p>
+                <p>@Html.DisplayFor(model => model.Contents)</p>
+            </div>
+        </div>
+        <div class="col-md-6 right-column">
+            <!-- Thêm class 'right-column' vào đây -->
+            <h4>Post</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Published)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Published)
+                </dd>
+                <dt class="col-sm-4">
+                    <!-- Thay đổi lớp cột từ col-sm-2 sang col-sm-4 -->
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+                <dd class="col-sm-8">
+                    <!-- Thay đổi lớp cột từ col-sm-10 sang col-sm-8 -->
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Author)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AccountId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AccountId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Tags)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Tags)
+                </dd>
+            </dl>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.PostId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<div class="btn-group">
+    <a asp-action="Edit" asp-route-id="@Model.PostId" class="btn btn-primary" style="margin-left: 100px;">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>

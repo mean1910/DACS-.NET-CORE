@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Models;
 
-public partial class ThaoDuocMarketContext : DbContext
+public partial class ThaoDuocMarketContext : IdentityDbContext<ApplicationUser>
+
 {
     public ThaoDuocMarketContext()
     {
@@ -15,7 +18,7 @@ public partial class ThaoDuocMarketContext : DbContext
     {
     }
 
-    public virtual DbSet<Account> Accounts { get; set; }
+   
 
     public virtual DbSet<Category> Categories { get; set; }
 
@@ -33,7 +36,7 @@ public partial class ThaoDuocMarketContext : DbContext
 
     public virtual DbSet<ProductImage> ProductImages { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+  
 
     public virtual DbSet<Shipper> Shippers { get; set; }
 
@@ -45,23 +48,17 @@ public partial class ThaoDuocMarketContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Account>(entity =>
+        modelBuilder.Entity<IdentityUser>().HasKey(u => u.Id);
+        modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
+        modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(l => new { l.LoginProvider, l.ProviderKey });
+        modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId, p.RoleId });
+        modelBuilder.Entity<IdentityUserToken<string>>().HasKey(p => new { p.UserId, p.LoginProvider, p.Name });
+        modelBuilder.Entity<IdentityUserRole<string>>(entity =>
         {
-            entity.Property(e => e.AccountId).HasColumnName("AccountID");
-            entity.Property(e => e.CreateDate).HasColumnType("datetime");
-            entity.Property(e => e.Email).HasMaxLength(50);
-            entity.Property(e => e.FullName).HasMaxLength(150);
-            entity.Property(e => e.LastLogin).HasColumnType("datetime");
-            entity.Property(e => e.Password).HasMaxLength(50);
-            entity.Property(e => e.Phone)
-                .HasMaxLength(12)
-                .IsUnicode(false);
-            entity.Property(e => e.RoleId).HasColumnName("RoleID");
-
-            entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
-                .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK_Accounts_Roles");
+            entity.HasKey(ur => new { ur.UserId, ur.RoleId });
+            entity.ToTable("AspNetUserRoles"); // Tên bảng tùy chỉnh nếu cần
         });
+        
 
         modelBuilder.Entity<Category>(entity =>
         {
@@ -163,11 +160,7 @@ public partial class ThaoDuocMarketContext : DbContext
                 .HasConstraintName("FK_ProductImage_Products");
         });
 
-        modelBuilder.Entity<Role>(entity =>
-        {
-            entity.Property(e => e.RoleId).HasColumnName("RoleID");
-            entity.Property(e => e.RoleName).HasMaxLength(50);
-        });
+        
 
         modelBuilder.Entity<Shipper>(entity =>
         {

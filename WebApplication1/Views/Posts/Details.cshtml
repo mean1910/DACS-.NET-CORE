@@ -1,0 +1,19 @@
+﻿@model WebApplication1.Models.Post
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h2 class="mb-4 display-6" style="font-size: 2vw;">@Html.DisplayFor(model => model.Title)</h2>
+            <p class="text-justify" style="font-family: Arial, Helvetica, sans-serif; font-size: 1.5vw;">
+                @Html.Raw(Model.Contents)
+            </p>
+        </div>
+        <div class="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
+            <img class="img-fluid" src="@Model.Thumb" alt="Thumbnail" style="width: 670px; height: auto;">
+        </div>
+    </div>
+</div>

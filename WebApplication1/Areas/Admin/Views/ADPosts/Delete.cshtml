@@ -4,73 +4,173 @@
     ViewData["Title"] = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    .row {
+        margin-bottom: 20px;
+    }
 
-<h1>Delete</h1>
+    .form-group {
+        margin-bottom: 10px;
+    }
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Post</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortContents)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortContents)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contents)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contents)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Thumb)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Thumb)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Published)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Published)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreateDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreateDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AccountId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tags)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tags)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="PostId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    .right-column {
+        padding-left: 100px; /* Điều chỉnh độ lề trái để thụt sang phải */
+    }
+
+    .btn-group {
+        margin-left: 0px; /* Thụt vào từ bên trái */
+        margin-top: 40px; /* Thụt xuống từ trên */
+    }
+
+        .btn-group a {
+            margin-right: 10px; /* Tăng khoảng cách giữa các nút */
+        }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <img src="@Model.Thumb" alt="Thumbnail" style="width: 600px; height: auto;" />
+            </div>
+            <div class="form-group">
+                <h4>@Html.DisplayFor(model => model.Title)</h4>
+                <p>@Html.DisplayFor(model => model.ShortContents)</p>
+                <p>@Html.DisplayFor(model => model.Contents)</p>
+            </div>
+        </div>
+        <div class="col-md-6 right-column">
+            <h4>Post</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Published)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Published)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Author)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AccountId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AccountId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Tags)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Tags)
+                </dd>
+            </dl>
+            <hr />
+            <form asp-action="Delete" id="deleteForm">
+                <input type="hidden" asp-for="PostId" />
+                <button type="button" onclick="confirmDelete()" class="btn btn-danger">Delete</button> |
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
 </div>
+
+<script>
+    function confirmDelete() {
+        if (confirm("Bạn có chắc chắn muốn xóa bài viết này?")) {<style>
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .right-column {
+        padding-left: 100px; /* Điều chỉnh độ lề trái để thụt sang phải */
+    }
+
+    .btn-group {
+        margin-left: 0px; /* Thụt vào từ bên trái */
+        margin-top: 40px; /* Thụt xuống từ trên */
+    }
+
+        .btn-group a {
+            margin-right: 10px; /* Tăng khoảng cách giữa các nút */
+        }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <img src="@Model.Thumb" alt="Thumbnail" style="width: 600px; height: auto;" />
+            </div>
+            <div class="form-group">
+                <h4>@Html.DisplayFor(model => model.Title)</h4>
+                <p>@Html.DisplayFor(model => model.ShortContents)</p>
+                <p>@Html.DisplayFor(model => model.Contents)</p>
+            </div>
+        </div>
+        <div class="col-md-6 right-column">
+            <h4>Post</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Published)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Published)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Author)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.AccountId)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.AccountId)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Tags)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Tags)
+                </dd>
+            </dl>
+            <hr />
+            <form asp-action="Delete" id="deleteForm">
+                <input type="hidden" asp-for="PostId" />
+                <button type="button" onclick="confirmDelete()" class="btn btn-danger">Delete</button> |
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete() {
+                if (confirm("Bạn có chắc chắn muốn xóa bài viết này?")) {
+                    document.getElementById("deleteForm").submit();
+                }
+            }
+</script>
+
